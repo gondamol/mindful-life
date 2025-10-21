@@ -2,6 +2,9 @@
 export const LIFE_EXPECTANCY = 65;
 export const RETIREMENT_AGE = 70;
 
+// Average hourly value rate in Kenyan Shillings (opportunity cost)
+export const HOURLY_VALUE_KES = 2000;
+
 // Average hours per day for different activities
 export const ACTIVITY_HOURS = {
   sleep: 8,
@@ -31,6 +34,8 @@ export interface LifeStats {
   actualFreeTimeMonths: number;
   screenTimePercentage: number;
   totalScreenHoursPerDay: number;
+  monetaryCostKES: number;
+  monetaryCostFormatted: string;
 }
 
 export function calculateLifeStats(data: LifeData): LifeStats {
@@ -70,6 +75,13 @@ export function calculateLifeStats(data: LifeData): LifeStats {
     ? Math.round((screenTimeMonths / freeTimeMonths) * 100) 
     : 0;
   
+  // Calculate monetary cost (opportunity cost of screen time)
+  const totalScreenHoursLifetime = totalScreenHoursPerDay * 365 * yearsLeft;
+  const monetaryCostKES = Math.round(totalScreenHoursLifetime * HOURLY_VALUE_KES);
+  
+  // Format the cost with commas
+  const monetaryCostFormatted = `KES ${monetaryCostKES.toLocaleString()}`;
+  
   return {
     totalMonthsLeft,
     sleepMonths,
@@ -83,6 +95,8 @@ export function calculateLifeStats(data: LifeData): LifeStats {
     actualFreeTimeMonths,
     screenTimePercentage,
     totalScreenHoursPerDay,
+    monetaryCostKES,
+    monetaryCostFormatted,
   };
 }
 

@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: process.env.FROM_EMAIL || 'noreply@mindfullife.com',
+        from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
         to: data.email,
         subject: 'Your Screen Time Analysis & Action Plan',
         html: generateEmailHTML(data),

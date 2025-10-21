@@ -2,11 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target } from "lucide-react";
+import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target, Menu, X } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { useState } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stats = [
     { value: "4.5 hours", label: "Average daily social media use", icon: Clock },
@@ -66,42 +68,316 @@ export default function Home() {
     },
   ];
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm border-b border-gray-900 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <span className="text-xl font-bold">∞</span>
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+                Mindful Life
+              </span>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              <button
+                onClick={() => scrollToSection('about')}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection('impact')}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Impact
+              </button>
+              <button
+                onClick={() => scrollToSection('transformations')}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Stories
+              </button>
+              <button
+                onClick={() => scrollToSection('resources')}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Resources
+              </button>
+              <button
+                onClick={() => router.push('/assess')}
+                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-medium transition-all"
+              >
+                Get Started
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-gray-300 hover:text-white"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-t border-gray-900 bg-black"
+          >
+            <div className="px-4 py-4 space-y-3">
+              <button
+                onClick={() => scrollToSection('about')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection('impact')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              >
+                Impact
+              </button>
+              <button
+                onClick={() => scrollToSection('transformations')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              >
+                Stories
+              </button>
+              <button
+                onClick={() => scrollToSection('resources')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              >
+                Resources
+              </button>
+              <button
+                onClick={() => router.push('/assess')}
+                className="block w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-medium text-center"
+              >
+                Get Started
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </nav>
+
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 pt-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl text-center"
+          className="max-w-6xl w-full"
         >
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Reclaim Your Life
-          </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-8">
-            Break free from digital addiction and rebuild your life with ancient wisdom
-          </p>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            A comprehensive platform rooted in Stoic and Buddhist philosophy to help you understand your screen time impact and develop a mindful relationship with technology.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => router.push("/assess")}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-medium transition-all flex items-center justify-center gap-2 group"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Visual Only */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
             >
-              Calculate Your Time
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => {
-                document.getElementById('learn-more')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-8 py-4 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-lg text-lg font-medium transition-all"
+              {/* Social Media Trap Illustration */}
+              <div className="relative w-full aspect-square max-w-lg mx-auto">
+                {/* Central figure - person trapped in phone */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    {/* Phone frame */}
+                    <div className="w-48 h-80 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl border-4 border-gray-700 shadow-2xl relative overflow-hidden">
+                      {/* Screen glow */}
+                      <div className="absolute inset-2 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl animate-pulse" />
+                      
+                      {/* Social media icons floating */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-4">
+                        <div className="grid grid-cols-3 gap-3">
+                          {['📱', '📷', '🎬', '💬', '❤️', '👍', '🔔', '📧', '🎮'].map((emoji, i) => (
+                            <motion.div
+                              key={i}
+                              animate={{ 
+                                y: [0, -10, 0],
+                                rotate: [0, 360],
+                                scale: [1, 1.2, 1]
+                              }}
+                              transition={{ 
+                                duration: 3,
+                                delay: i * 0.2,
+                                repeat: Infinity,
+                                repeatDelay: 1
+                              }}
+                              className="text-3xl opacity-70"
+                            >
+                              {emoji}
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Breaking free effect - chains */}
+                    <motion.div
+                      animate={{ rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute -left-12 top-1/2 text-4xl"
+                    >
+                      ⛓️💥
+                    </motion.div>
+                    <motion.div
+                      animate={{ rotate: [0, -5, 5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                      className="absolute -right-12 top-1/2 text-4xl"
+                    >
+                      💥⛓️
+                    </motion.div>
+                  </div>
+                </div>
+                
+                {/* Orbiting social media logos */}
+                <div className="absolute inset-0">
+                  {['FB', 'IG', 'TW', 'TT', 'YT', 'SC'].map((platform, i) => (
+                    <motion.div
+                      key={platform}
+                      animate={{
+                        rotate: 360
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: i * 2
+                      }}
+                      className="absolute w-full h-full"
+                      style={{
+                        transformOrigin: 'center center'
+                      }}
+                    >
+                      <div 
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-red-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-xs shadow-lg"
+                        style={{
+                          transform: `rotate(-${i * 60}deg)`
+                        }}
+                      >
+                        {platform}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Clean Tagline & CTA */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-center lg:text-left flex flex-col justify-center h-full space-y-8"
             >
-              Learn More
-            </button>
+              {/* Main Headline - Bigger */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text leading-none">
+                  Reclaim Your Life
+                </h1>
+              </motion.div>
+              
+              {/* Enhanced Description */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="space-y-6"
+              >
+                <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+                  Break free from digital addiction with ancient wisdom
+                </p>
+                <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+                  Combining <span className="text-cyan-400 font-medium">Stoic philosophy</span>, <span className="text-purple-400 font-medium">Japanese Zen mindfulness</span>, and <span className="text-blue-400 font-medium">modern behavioral science</span> to help you reclaim your time and rebuild your life with purpose.
+                </p>
+              </motion.div>
+              
+              {/* Trust Indicators with better styling */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="flex flex-wrap items-center gap-6"
+              >
+                {[
+                  { icon: "🔬", text: "Science-backed" },
+                  { icon: "🏛️", text: "Ancient wisdom" },
+                  { icon: "🎁", text: "Free forever" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+                    className="flex items-center gap-2 bg-gray-900/50 px-4 py-2 rounded-full border border-gray-800"
+                  >
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-sm text-gray-300">{item.text}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+              {/* Enhanced CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="space-y-4"
+              >
+                {/* Primary CTA with pulse effect */}
+                <motion.button
+                  onClick={() => router.push("/assess")}
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 0 0 rgba(59, 130, 246, 0)",
+                      "0 0 0 10px rgba(59, 130, 246, 0)",
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-500/20"
+                >
+                  Calculate Your Time
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                </motion.button>
+
+                {/* Secondary CTA */}
+                <button
+                  onClick={() => {
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="w-full sm:w-auto px-10 py-4 bg-transparent hover:bg-gray-900/50 border-2 border-gray-700 hover:border-gray-600 rounded-xl text-lg font-medium transition-all"
+                >
+                  Learn More
+                </button>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -123,16 +399,37 @@ export default function Home() {
       </section>
 
       {/* Statistics Section */}
-      <section id="learn-more" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+      <section id="about" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-6xl mx-auto">
-          <motion.h2
+          {/* Powerful Question Hook */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16 max-w-4xl mx-auto"
+          >
+            <p className="text-cyan-400 font-medium mb-4 text-sm uppercase tracking-wider">
+              A Question That Will Change Your Life
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              &ldquo;How many <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-400">years</span> of your life will you give to social media?&rdquo;
+            </h2>
+            <p className="text-gray-500 mb-2">
+              — Dino Ambrosi, TEDx Talk: "The Battle for Your Time"
+            </p>
+            <p className="text-gray-400 text-lg mt-6">
+              The answer might shock you. Let's look at the data...
+            </p>
+          </motion.div>
+
+          <motion.h3
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16"
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
           >
             The Digital Addiction Crisis
-          </motion.h2>
+          </motion.h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -154,7 +451,7 @@ export default function Home() {
       </section>
 
       {/* Effects Section */}
-      <section className="py-20 px-4 bg-gray-900">
+      <section id="impact" className="py-20 px-4 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0 }}
@@ -188,7 +485,7 @@ export default function Home() {
       </section>
 
       {/* Transformation Examples Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+      <section id="transformations" className="py-20 px-4 bg-gradient-to-b from-gray-900 via-black to-gray-900">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -407,7 +704,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+      <section id="resources" className="py-20 px-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

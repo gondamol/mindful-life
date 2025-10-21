@@ -254,6 +254,16 @@ export default function ResultsPage() {
       ],
     },
     {
+      title: `The Real Cost: ${stats.monetaryCostFormatted}`,
+      subtitle: `That's the opportunity cost of your screen time—what you could have earned if you valued your time at KES 2,000/hour`,
+      dots: stats.freeTimeMonths,
+      colored: [{ count: stats.screenTimeMonths, color: "bg-red-500" }],
+      legend: [
+        { emoji: "💰", name: "Opportunity Cost", months: stats.screenTimeMonths, color: "bg-red-500" },
+        { emoji: "⏰", name: "Your Time = Money", months: stats.actualFreeTimeMonths, color: "bg-green-500" },
+      ],
+    },
+    {
       title: "But you can still win back that time",
       subtitle: `Just watch what happens if you reduce screen time by 50%`,
       dots: stats.freeTimeMonths,
