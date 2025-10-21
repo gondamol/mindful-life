@@ -3,9 +3,5 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["iad1"],
-  "env": {
-    "RESEND_API_KEY": "@resend_api_key",
-    "FROM_EMAIL": "@from_email"
-  }
+  "regions": ["iad1"]
 }
