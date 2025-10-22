@@ -60,6 +60,12 @@ export default function ActionPlanPage() {
       
       if (response.ok) {
         setSubmitted(true);
+        // Show different message based on whether email was sent
+        if (data.emailSent) {
+          console.log('✅ Email sent successfully!');
+        } else {
+          console.log('⏰ Email will be sent later (Resend not configured)');
+        }
       } else {
         console.error('Failed to subscribe:', data.error);
         // Still show success to user even if subscription fails
