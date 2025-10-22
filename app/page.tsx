@@ -118,6 +118,12 @@ export default function Home() {
                 Stories
               </button>
               <button
+                onClick={() => router.push('/blog')}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Blog
+              </button>
+              <button
                 onClick={() => scrollToSection('resources')}
                 className="text-gray-300 hover:text-white transition-colors"
               >
@@ -167,6 +173,12 @@ export default function Home() {
                 className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
               >
                 Stories
+              </button>
+              <button
+                onClick={() => router.push('/blog')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
+              >
+                Blog
               </button>
               <button
                 onClick={() => scrollToSection('resources')}
@@ -313,7 +325,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="space-y-6"
               >
-                <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-300 font-light leading-tight whitespace-nowrap">
                   Break free from digital addiction with ancient wisdom
                 </p>
                 <p className="text-base md:text-lg text-gray-400 leading-relaxed">
@@ -349,7 +361,7 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="space-y-4"
+                className="flex flex-wrap gap-4"
               >
                 {/* Primary CTA with pulse effect */}
                 <motion.button
@@ -361,7 +373,7 @@ export default function Home() {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-500/20"
+                  className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-500/20"
                 >
                   Calculate Your Time
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -369,10 +381,8 @@ export default function Home() {
 
                 {/* Secondary CTA */}
                 <button
-                  onClick={() => {
-                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="w-full sm:w-auto px-10 py-4 bg-transparent hover:bg-gray-900/50 border-2 border-gray-700 hover:border-gray-600 rounded-xl text-lg font-medium transition-all"
+                  onClick={() => router.push('/blog')}
+                  className="px-10 py-4 bg-transparent hover:bg-gray-900/50 border-2 border-gray-700 hover:border-gray-600 rounded-xl text-lg font-medium transition-all"
                 >
                   Learn More
                 </button>
