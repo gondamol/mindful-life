@@ -206,8 +206,69 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Ubuntu Wisdom Academy Promo */}
+        <div className="mb-12 p-8 bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/30 rounded-xl text-center">
+          <h3 className="text-2xl font-bold mb-3">Ready to Transform Your Life?</h3>
+          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+            Join Ubuntu Wisdom Academy and master ancient philosophy for modern living. 
+            Break free from digital addiction, find your purpose, and build a meaningful life.
+          </p>
+          <a
+            href="/academy"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-bold transition-all"
+          >
+            Explore Academy
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+
         {/* Divider */}
         <div className="border-t border-gray-900 pt-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Contact & Support */}
+            <div>
+              <h4 className="text-lg font-bold mb-4">Contact & Support</h4>
+              <div className="space-y-3 text-sm">
+                <p className="text-gray-400">
+                  Have questions or want to support this project?
+                </p>
+                <div className="space-y-2">
+                  <a
+                    href="mailto:nichodemuswerre@gmail.com"
+                    className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+                  >
+                    <span>📧</span> nichodemuswerre@gmail.com
+                  </a>
+                  <a
+                    href="tel:+254725737867"
+                    className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+                  >
+                    <span>📱</span> +254 725 737 867
+                  </a>
+                  <a
+                    href="https://buymeacoffee.com/nichodemus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-lg font-medium transition-all mt-2"
+                  >
+                    ☕ Buy me a coffee
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <a href="/" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a>
+                <a href="/blog" className="text-gray-400 hover:text-blue-400 transition-colors">Blog</a>
+                <a href="/academy" className="text-gray-400 hover:text-blue-400 transition-colors">Academy</a>
+                <a href="/assess" className="text-gray-400 hover:text-blue-400 transition-colors">Calculate Time</a>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center text-gray-500 text-sm space-y-2">
             <p className="font-medium text-gray-400">
               &ldquo;You could leave life right now. Let that determine what you do and say and think.&rdquo;
@@ -217,6 +278,9 @@ export function Footer() {
               <p>Built with ❤️ for digital wellness in Kenya and beyond</p>
               <p className="mt-1">
                 Inspired by Cal Newport, Dino Ambrosi, Stephen Duneier, and Stoic Philosophy
+              </p>
+              <p className="mt-2 text-xs text-gray-600">
+                © 2025 Mindful Life • Ubuntu Wisdom Academy
               </p>
             </div>
           </div>

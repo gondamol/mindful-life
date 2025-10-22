@@ -27,7 +27,7 @@ Transform lives destroyed by digital addiction through ancient wisdom, modern sc
 - [x] Lucide React for icons
 - [x] Dynamic time formatting utilities
 
-### Recent Enhancements (Latest Update)
+### Recent Enhancements (Latest Update - Jan 2025)
 - [x] Comprehensive educational homepage
 - [x] Statistics about digital addiction
 - [x] Research-backed effects section
@@ -38,6 +38,17 @@ Transform lives destroyed by digital addiction through ancient wisdom, modern sc
 - [x] Fixed "dive deeper" calculation bug
 - [x] Hero section with gradient text
 - [x] Multi-section educational content
+- [x] **Blog section with 21 high-quality articles** ✨
+- [x] **Search & filter functionality** for blog
+- [x] **Interactive time reduction calculator** with dropdown (50-100%)
+- [x] **Fixed percentage calculation bug** (capped at 100%)
+- [x] **Ubuntu Wisdom Academy** - Subscription-based philosophy school ⭐
+- [x] Academy landing page with 6 courses
+- [x] Enrollment/payment page
+- [x] Floating promo card on homepage
+- [x] Academy navigation link
+- [x] **Support & contact buttons** (Buy me coffee, email, phone)
+- [x] **Updated footer** with Academy promo and contact info
 
 ---
 
@@ -102,6 +113,102 @@ Transform lives destroyed by digital addiction through ancient wisdom, modern sc
   - Mental health services
   - Support groups
   - Digital wellness workshops
+
+---
+
+## 🎓 UBUNTU WISDOM ACADEMY - Roadmap
+
+### ✅ Phase 1: Foundation (COMPLETED - Jan 2025)
+- [x] Academy landing page with course catalog
+- [x] 6 comprehensive course descriptions:
+  - Digital Stoicism for Modern Distraction
+  - Ubuntu: We Are Because We Are
+  - Buddhist Mindfulness for Digital Age
+  - Deep Work Mastery (Cal Newport Method)
+  - Purpose-Driven Life
+  - Habit Architecture
+- [x] Live coaching features overview
+- [x] Benefits & pricing section
+- [x] Enrollment page with payment options
+- [x] Contact information integration
+- [x] Navigation menu integration
+- [x] Floating promotional card on homepage
+- [x] Footer Academy promo section
+
+### 🚧 Phase 2: Payment Integration (NEXT)
+- [ ] **Payment gateway setup**
+  - [ ] M-Pesa integration (for Kenyan market)
+  - [ ] Stripe for international cards
+  - [ ] Subscription management system
+  - [ ] Auto-billing & renewal
+- [ ] **User authentication**
+  - [ ] Sign up / Login system
+  - [ ] User dashboard
+  - [ ] Profile management
+- [ ] **Enrollment workflow**
+  - [ ] Automated welcome emails
+  - [ ] Course access control
+  - [ ] Payment confirmation system
+
+### 🎯 Phase 3: Course Content Development
+- [ ] **Course 1: Digital Stoicism**
+  - [ ] 8 video modules (10-15 min each)
+  - [ ] Downloadable workbooks
+  - [ ] Practical exercises
+  - [ ] Weekly challenges
+- [ ] **Course 2: Ubuntu Philosophy**
+  - [ ] 6 modules on African wisdom
+  - [ ] Community connection exercises
+  - [ ] Group discussion prompts
+- [ ] **Course 3: Buddhist Mindfulness**
+  - [ ] 10 guided meditations
+  - [ ] Breath work practices
+  - [ ] Mindful living exercises
+- [ ] **Course 4-6**: Develop remaining courses
+- [ ] **Certificates** of completion (automated)
+
+### 🎥 Phase 4: Live Coaching Infrastructure
+- [ ] **Weekly live sessions**
+  - [ ] Zoom/Google Meet integration
+  - [ ] Session recording & replay
+  - [ ] Q&A format development
+  - [ ] Schedule & calendar system
+- [ ] **1-on-1 Mentorship**
+  - [ ] Booking calendar system
+  - [ ] Coach profiles & bios
+  - [ ] Session notes & follow-up
+- [ ] **Community circles**
+  - [ ] Small group matching (5-7 people)
+  - [ ] Accountability partnerships
+  - [ ] Peer support forum
+
+### 💬 Phase 5: Community Platform
+- [ ] **Private Forum**
+  - [ ] Discussion boards
+  - [ ] Member profiles
+  - [ ] Direct messaging
+  - [ ] Resource sharing
+- [ ] **Monthly challenges**
+  - [ ] Digital detox challenges
+  - [ ] Habit building sprints
+  - [ ] Community leaderboard
+- [ ] **Student showcase**
+  - [ ] Success stories
+  - [ ] Transformation testimonials
+  - [ ] Graduate achievements
+
+### 📊 Phase 6: Advanced Features
+- [ ] **Progress tracking**
+  - [ ] Course completion metrics
+  - [ ] Habit streaks
+  - [ ] Personal growth dashboard
+- [ ] **AI-powered recommendations**
+  - [ ] Personalized learning paths
+  - [ ] Content suggestions
+- [ ] **Mobile app**
+  - [ ] iOS & Android
+  - [ ] Offline course access
+  - [ ] Push notifications for accountability
 
 ---
 

@@ -2,13 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target, Menu, X } from "lucide-react";
+import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target, Menu, X, Sparkles, GraduationCap, Coffee, Mail, Phone, CheckCircle } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { useState } from "react";
 
 export default function Home() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showPromo, setShowPromo] = useState(true);
 
   const stats = [
     { value: "4.5 hours", label: "Average daily social media use", icon: Clock },
@@ -124,6 +125,13 @@ export default function Home() {
                 Blog
               </button>
               <button
+                onClick={() => router.push('/academy')}
+                className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors"
+              >
+                <GraduationCap className="w-4 h-4" />
+                Academy
+              </button>
+              <button
                 onClick={() => scrollToSection('resources')}
                 className="text-gray-300 hover:text-white transition-colors"
               >
@@ -181,6 +189,13 @@ export default function Home() {
                 Blog
               </button>
               <button
+                onClick={() => router.push('/academy')}
+                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors flex items-center gap-2"
+              >
+                <GraduationCap className="w-4 h-4" />
+                Academy
+              </button>
+              <button
                 onClick={() => scrollToSection('resources')}
                 className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors"
               >
@@ -196,6 +211,94 @@ export default function Home() {
           </motion.div>
         )}
       </nav>
+
+      {/* Floating Promo Card for Academy */}
+      {showPromo && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          className="fixed bottom-6 right-6 z-40 max-w-sm"
+        >
+          <div className="bg-gradient-to-br from-blue-900 to-purple-900 border-2 border-blue-500/50 rounded-2xl p-6 shadow-2xl">
+            <button
+              onClick={() => setShowPromo(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
+            <div className="flex items-start gap-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-1">Ubuntu Wisdom Academy</h3>
+                <p className="text-sm text-blue-200">Transform Your Life in 30 Days</p>
+              </div>
+            </div>
+            
+            <p className="text-sm text-gray-200 mb-4">
+              Master Stoicism, Ubuntu & Buddhist wisdom. Break digital addiction. Find your purpose. Join 500+ students.
+            </p>
+            
+            <div className="space-y-2 mb-4 text-sm">
+              <div className="flex items-center gap-2 text-blue-200">
+                <CheckCircle className="w-4 h-4" />
+                <span>6 self-paced courses</span>
+              </div>
+              <div className="flex items-center gap-2 text-blue-200">
+                <CheckCircle className="w-4 h-4" />
+                <span>Weekly live coaching</span>
+              </div>
+              <div className="flex items-center gap-2 text-blue-200">
+                <CheckCircle className="w-4 h-4" />
+                <span>Private community</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <div className="text-2xl font-bold">
+                $10<span className="text-sm text-gray-300">/mo</span>
+              </div>
+              <button
+                onClick={() => router.push('/academy')}
+                className="flex-1 px-4 py-3 bg-white text-blue-900 hover:bg-gray-100 rounded-lg font-bold flex items-center justify-center gap-2 transition-all"
+              >
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Fixed Support Button */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="fixed bottom-6 left-6 z-40"
+      >
+        <div className="flex flex-col gap-3">
+          <a
+            href="https://buymeacoffee.com/nichodemus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-3 bg-yellow-500 hover:bg-yellow-400 text-black rounded-full font-medium shadow-lg transition-all group"
+          >
+            <Coffee className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            <span className="hidden sm:inline">Buy me a coffee</span>
+          </a>
+          
+          <a
+            href="mailto:nichodemuswerre@gmail.com"
+            className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 hover:bg-gray-800 border border-gray-700 text-white rounded-full shadow-lg transition-all group"
+          >
+            <Mail className="w-5 h-5" />
+            <span className="hidden sm:inline">Contact</span>
+          </a>
+        </div>
+      </motion.div>
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 pt-32">
