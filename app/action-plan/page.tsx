@@ -145,12 +145,29 @@ export default function ActionPlanPage() {
           <p className="text-gray-500 mb-8">
             In the meantime, try implementing the 4 strategies above to start reducing your screen time today!
           </p>
-          <button
-            onClick={() => router.push("/")}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
-          >
-            Start Over
-          </button>
+          
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/academy")}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-semibold text-lg flex items-center gap-2 transition-all shadow-lg"
+            >
+              🎓 Join Ubuntu Wisdom Academy
+            </motion.button>
+            
+            <button
+              onClick={() => router.push("/")}
+              className="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors"
+            >
+              Start Over
+            </button>
+          </div>
+          
+          <p className="text-sm text-gray-600 mt-4">
+            Access free courses, live coaching, and a community of digital wellness seekers
+          </p>
         </motion.div>
       </div>
     );
