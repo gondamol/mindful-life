@@ -202,6 +202,45 @@ export function Footer() {
                   ))}
                 </ul>
               </div>
+
+              <div>
+                <h4 className="text-lg font-bold mb-3">📚 Downloadable Workbooks</h4>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="/workbooks/module-1-workbook.md"
+                      download
+                      className="group"
+                    >
+                      <div className="flex items-start gap-2 text-gray-400 hover:text-blue-400 transition-colors">
+                        <BookOpen className="w-4 h-4 mt-1 flex-shrink-0" />
+                        <div>
+                          <div className="font-medium text-white group-hover:text-blue-400">
+                            Module 1: Control Audit Workbook
+                          </div>
+                          <div className="text-xs text-gray-600">Free • 50+ pages of exercises</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/academy/courses/digital-stoicism"
+                      className="group"
+                    >
+                      <div className="flex items-start gap-2 text-gray-400 hover:text-blue-400 transition-colors">
+                        <BookOpen className="w-4 h-4 mt-1 flex-shrink-0" />
+                        <div>
+                          <div className="font-medium text-white group-hover:text-blue-400">
+                            More Workbooks in Course
+                          </div>
+                          <div className="text-xs text-gray-600">Enroll to unlock all 8 modules</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
