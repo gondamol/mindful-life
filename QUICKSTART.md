@@ -1,20 +1,112 @@
-# Mindful Life - Quick Start Guide
+# Ubuntu Wisdom Academy - Quick Start Guide
 
-## 🚀 Get Started in 5 Minutes
+## 🚀 Get Started in 15 Minutes
 
-### 1. Install Dependencies
+### Prerequisites Checklist
+- [ ] Node.js 18+ installed
+- [ ] Git installed
+- [ ] Supabase account (free)
+- [ ] Vercel account (free)
+
+---
+
+## OPTION 1: Automated Setup (Easiest)
+
+### 1. Clone & Install
 ```bash
-cd mindful-life
+cd /home/gondamol/gondamol/screentime/mindful-life
 npm install
 ```
 
-### 2. Run Development Server
+### 2. Run Setup Script
+```bash
+./setup-local.sh
+```
+
+This will:
+- Create `.env.local` from template
+- Guide you through required values
+- Open editor for configuration
+
+### 3. Add Your Keys
+
+Fill in `.env.local`:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+SUPABASE_SERVICE_ROLE_KEY=eyJ...
+NEXTAUTH_SECRET=UrXsg4fGB0/te4cMdAnbO3IZJ6WTEI387WB+WW5Zixc=
+```
+
+### 4. Load Database
+- Go to Supabase → SQL Editor
+- Copy contents of `supabase/schema.sql`
+- Paste and Run
+
+### 5. Start Development
 ```bash
 npm run dev
 ```
 
-### 3. Open in Browser
-Navigate to [http://localhost:3000](http://localhost:3000)
+Visit: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## OPTION 2: Manual Setup
+
+### 1. Create Supabase Project
+
+1. Go to [supabase.com](https://supabase.com)
+2. Create new project
+3. Get API keys from Settings → API
+4. Run `supabase/schema.sql` in SQL Editor
+
+### 2. Configure Environment
+
+```bash
+cp env.template .env.local
+# Edit .env.local with your values
+```
+
+### 3. Install & Run
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 📋 What You Get
+
+After setup, you'll have:
+
+✅ **Free Tools**:
+- Screen time calculator
+- 21 blog articles with search
+- Free course preview (Modules 1-2)
+- Downloadable workbooks
+
+✅ **Premium Features** (requires payment setup):
+- Full course (8 modules, 24 lessons)
+- Interactive quizzes
+- Progress tracking
+- Certificates
+- Community forum
+- Live coaching
+
+---
+
+## 🚢 Deploy to Production
+
+**Full guide:** See `DEPLOYMENT_GUIDE.md`
+
+**Quick version:**
+
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy!
 
 ---
 
