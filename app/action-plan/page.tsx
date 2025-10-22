@@ -132,12 +132,12 @@ export default function ActionPlanPage() {
           <div className="mb-6">
             <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto" />
           </div>
-          <h1 className="text-4xl font-bold mb-4">Check Your Email!</h1>
+          <h1 className="text-4xl font-bold mb-4">Thanks for Signing Up!</h1>
           <p className="text-xl text-gray-400 mb-8">
-            We've sent you a personalized report with strategies to reduce your screen time by 50%.
+            You've been added to our mailing list. We'll send you personalized strategies and check-ins soon.
           </p>
           <p className="text-gray-500 mb-8">
-            We'll check in with you in 2 weeks to see how you're doing.
+            In the meantime, try implementing the 4 strategies above to start reducing your screen time today!
           </p>
           <button
             onClick={() => router.push("/")}
