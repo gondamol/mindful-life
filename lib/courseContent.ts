@@ -976,14 +976,15 @@ Duration: __ minutes
 
 **Print or screenshot this:**
 
-```
-Day | Woke On Time | No Phone 30min | Activity 1 | Activity 2 | Activity 3 | How I Felt (1-10)
-1   |     ☐        |      ☐         |     ☐      |     ☐      |     ☐      |     ___
-2   |     ☐        |      ☐         |     ☐      |     ☐      |     ☐      |     ___
-3   |     ☐        |      ☐         |     ☐      |     ☐      |     ☐      |     ___
-...
-30  |     ☐        |      ☐         |     ☐      |     ☐      |     ☐      |     ___
-```
+**30-Day Morning Routine Tracker:**
+
+| Day | Woke On Time | No Phone 30min | Activity 1 | Activity 2 | Activity 3 | How I Felt (1-10) |
+|-----|--------------|----------------|------------|------------|------------|-------------------|
+| 1   | ☐            | ☐              | ☐          | ☐          | ☐          | ___               |
+| 2   | ☐            | ☐              | ☐          | ☐          | ☐          | ___               |
+| 3   | ☐            | ☐              | ☐          | ☐          | ☐          | ___               |
+| ... |              |                |            |            |            |                   |
+| 30  | ☐            | ☐              | ☐          | ☐          | ☐          | ___               |
 
 ### Week 1 Review (After 7 days)
 
