@@ -121,6 +121,22 @@ CREATE TABLE public.session_registrations (
   UNIQUE(session_id, user_id)
 );
 
+-- Email subscriptions (for newsletter, action plans, etc.)
+CREATE TABLE public.email_subscriptions (
+  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  name TEXT,
+  subscription_type TEXT NOT NULL CHECK (subscription_type IN ('newsletter', 'action_plan', 'course_updates', 'all')),
+  subscribed BOOLEAN DEFAULT TRUE,
+  subscribed_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  unsubscribed_at TIMESTAMP WITH TIME ZONE,
+  source TEXT, -- 'homepage', 'action-plan', 'blog', etc.
+  metadata JSONB, -- Store additional data like screen time, age, etc.
+  email_verified BOOLEAN DEFAULT FALSE,
+  verification_token TEXT,
+  last_email_sent_at TIMESTAMP WITH TIME ZONE
+);
+
 -- Create indexes for performance
 CREATE INDEX idx_course_progress_user ON public.course_progress(user_id);
 CREATE INDEX idx_course_progress_course ON public.course_progress(course_id);
@@ -128,6 +144,8 @@ CREATE INDEX idx_quiz_attempts_user ON public.quiz_attempts(user_id);
 CREATE INDEX idx_forum_posts_created ON public.forum_posts(created_at DESC);
 CREATE INDEX idx_transactions_user ON public.transactions(user_id);
 CREATE INDEX idx_coaching_sessions_scheduled ON public.coaching_sessions(scheduled_at);
+CREATE INDEX idx_email_subscriptions_email ON public.email_subscriptions(email);
+CREATE INDEX idx_email_subscriptions_subscribed ON public.email_subscriptions(subscribed);
 
 -- Row Level Security (RLS) Policies
 
@@ -142,6 +160,7 @@ ALTER TABLE public.transactions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.achievements ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.coaching_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.session_registrations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.email_subscriptions ENABLE ROW LEVEL SECURITY;
 
 -- Users can read their own data
 CREATE POLICY "Users can view own profile"
@@ -201,6 +220,19 @@ CREATE POLICY "Users can view own registrations"
 CREATE POLICY "Users can register for sessions"
   ON public.session_registrations FOR INSERT
   WITH CHECK (auth.uid() = user_id);
+
+-- Email subscriptions policies (public can submit, only admins can view all)
+CREATE POLICY "Anyone can subscribe via email"
+  ON public.email_subscriptions FOR INSERT
+  WITH CHECK (true);
+
+CREATE POLICY "Users can view own subscription"
+  ON public.email_subscriptions FOR SELECT
+  USING (email = current_setting('request.jwt.claims', true)::json->>'email');
+
+CREATE POLICY "Users can unsubscribe"
+  ON public.email_subscriptions FOR UPDATE
+  USING (email = current_setting('request.jwt.claims', true)::json->>'email');
 
 -- Functions for common queries
 

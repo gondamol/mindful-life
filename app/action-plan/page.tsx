@@ -43,22 +43,26 @@ export default function ActionPlanPage() {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           email,
-          ...stats
+          subscriptionType: 'action_plan',
+          source: 'action-plan',
+          metadata: stats
         }),
       });
+      
+      const data = await response.json();
       
       if (response.ok) {
         setSubmitted(true);
       } else {
-        console.error('Failed to send email');
-        // Still show success to user even if email fails
+        console.error('Failed to subscribe:', data.error);
+        // Still show success to user even if subscription fails
         setSubmitted(true);
       }
     } catch (error) {
