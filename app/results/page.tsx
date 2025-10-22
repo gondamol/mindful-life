@@ -66,7 +66,7 @@ export default function ResultsPage() {
   const steps = [
     {
       title: `This is the time you have left in your life: ${formatTimeDisplay(stats.totalMonthsLeft)}`,
-      subtitle: "(Assuming 65 year life expectancy)",
+      subtitle: "(Assuming 80 year life expectancy)",
       dots: stats.totalMonthsLeft,
       colored: [],
     },

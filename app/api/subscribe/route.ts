@@ -87,8 +87,10 @@ export async function POST(req: NextRequest) {
           actualFreeTimeMonths: metadata.actualFreeTimeMonths || 0
         });
 
+        const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+        
         await resend.emails.send({
-          from: 'Mindful Life <onboarding@resend.dev>', // Use your verified domain
+          from: fromEmail,
           to: email,
           subject: emailContent.subject,
           html: emailContent.html,

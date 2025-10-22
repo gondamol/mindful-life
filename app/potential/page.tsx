@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { BookOpen, Dumbbell, Code, Languages, Music, Briefcase, GraduationCap, Heart, Home } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { LIFE_EXPECTANCY } from "@/lib/calculations";
 
 interface Achievement {
   icon: any;
@@ -27,8 +28,7 @@ export default function PotentialPage() {
       setScreenTimeHoursPerDay(totalHours);
       
       // Get screen time months from calculations
-      const lifeExpectancy = 65;
-      const yearsLeft = lifeExpectancy - parsed.age;
+      const yearsLeft = LIFE_EXPECTANCY - parsed.age;
       const totalMonths = yearsLeft * 12;
       const screenTimeMonths = Math.round((totalHours / 24) * totalMonths);
       setScreenTimeMonths(screenTimeMonths);

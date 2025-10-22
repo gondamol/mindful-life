@@ -1,6 +1,6 @@
-// Life expectancy for Kenya and similar regions
-export const LIFE_EXPECTANCY = 65;
-export const RETIREMENT_AGE = 70;
+// Life expectancy (global average)
+export const LIFE_EXPECTANCY = 80;
+export const RETIREMENT_AGE = 65;
 
 // Average hourly value rate in Kenyan Shillings (opportunity cost)
 export const HOURLY_VALUE_KES = 2000;

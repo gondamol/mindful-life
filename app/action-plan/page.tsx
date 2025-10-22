@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { CheckCircle2, Lightbulb, Target, Bell, Smartphone } from "lucide-react";
+import { LIFE_EXPECTANCY } from "@/lib/calculations";
 
 export default function ActionPlanPage() {
   const router = useRouter();
@@ -21,8 +22,7 @@ export default function ActionPlanPage() {
       const parsed = JSON.parse(data);
       const age = parsed.age;
       const totalHours = parsed.dailyScreenHours + parsed.dailyScreenMinutes / 60;
-      const lifeExpectancy = 65;
-      const yearsLeft = lifeExpectancy - age;
+      const yearsLeft = LIFE_EXPECTANCY - age;
       const totalMonths = yearsLeft * 12;
       const screenTimeMonths = Math.round((totalHours / 24) * totalMonths);
       const freeTimeMonths = Math.round(totalMonths * (2.5 / 24)); // Approx free time
