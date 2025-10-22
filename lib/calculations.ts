@@ -70,9 +70,10 @@ export function calculateLifeStats(data: LifeData): LifeStats {
   // Calculate actual free time (free time - screen time)
   const actualFreeTimeMonths = Math.max(0, freeTimeMonths - screenTimeMonths);
   
-  // Calculate percentage of free time spent on screens (capped at 100%)
+  // Calculate percentage of free time spent on screens
+  // NOTE: Can exceed 100% if screen time > free time (taking from sleep/work/etc)
   const screenTimePercentage = freeTimeMonths > 0 
-    ? Math.min(100, Math.round((screenTimeMonths / freeTimeMonths) * 100))
+    ? Math.round((screenTimeMonths / freeTimeMonths) * 100)
     : 0;
   
   // Calculate monetary cost (opportunity cost of screen time)

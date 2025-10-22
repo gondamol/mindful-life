@@ -244,7 +244,11 @@ export default function ResultsPage() {
     },
     {
       title: `And you're on course to spend ${stats.screenTimePercentage}% of that time looking at screens`,
-      subtitle: "",
+      subtitle: stats.screenTimePercentage > 100 
+        ? "⚠️ Over 100%? You're taking time from sleep, work, or other obligations!"
+        : stats.screenTimePercentage === 100
+        ? "😱 That's ALL your free time. Zero left for life."
+        : "",
       dots: stats.freeTimeMonths,
       colored: [{ count: stats.screenTimeMonths, color: "bg-red-500" }],
       legend: [
