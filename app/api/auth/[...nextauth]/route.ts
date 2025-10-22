@@ -15,17 +15,21 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
-    EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
-      },
-      from: process.env.EMAIL_FROM,
-    }),
+    ...(process.env.EMAIL_SERVER_HOST && process.env.EMAIL_SERVER_PORT
+      ? [
+          EmailProvider({
+            server: {
+              host: process.env.EMAIL_SERVER_HOST,
+              port: parseInt(process.env.EMAIL_SERVER_PORT),
+              auth: {
+                user: process.env.EMAIL_SERVER_USER,
+                pass: process.env.EMAIL_SERVER_PASSWORD,
+              },
+            },
+            from: process.env.EMAIL_FROM,
+          }),
+        ]
+      : []),
   ],
   callbacks: {
     async signIn({ user, account }) {
