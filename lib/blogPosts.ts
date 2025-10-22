@@ -1091,6 +1091,301 @@ You can't experience everything. You were never meant to.
 `
   },
   {
+    id: "find-life-purpose-5-minutes-adam-leipzig",
+    title: "How to Find Your Life Purpose in 5 Minutes (This TEDx Formula Actually Works)",
+    excerpt: "Yale graduate Adam Leipzig discovered that 80% of people don't know their life purpose. He created a 5-question framework that changes everything.",
+    category: "Purpose",
+    author: "Mindful Life Team",
+    date: "2025-01-16",
+    readTime: "9 min read",
+    image: "🎯",
+    content: `
+# How to Find Your Life Purpose in 5 Minutes (This TEDx Formula Actually Works)
+
+**The 5 Questions That Reveal Your Life's Direction**
+
+At a college reunion, film producer Adam Leipzig asked 80 of his Yale classmates: "Are you happy? Do you know your life purpose?"
+
+**The shocking result**: Only 20% said yes.
+
+These were successful, educated people with impressive careers. Yet 80% felt lost, unfulfilled, directionless.
+
+The difference? **Those 20% knew the answer to 5 simple questions.**
+
+## Why Most People Don't Know Their Purpose
+
+Let's be honest. You've probably asked yourself:
+- "What am I supposed to do with my life?"
+- "What's my calling?"
+- "What am I here for?"
+
+And gotten... nothing. Silence. Confusion. Overwhelm.
+
+Here's why: **You're asking the wrong questions.**
+
+Most people make purpose about:
+- Making money
+- Achieving status
+- Impressing others
+- Finding the "perfect" career
+
+**Adam Leipzig discovered the opposite is true.**
+
+The happiest, most fulfilled people aren't focused on themselves at all. They're focused on **who they serve and how they help.**
+
+## The 5 Questions Framework
+
+Ready? Get a pen. Answer these honestly:
+
+### Question 1: Who Are You?
+
+Not your job title. Not your role. **Who are you at your core?**
+
+Example answers:
+- I'm a creative person
+- I'm someone who loves solving problems
+- I'm a connector of people
+- I'm a storyteller
+
+**Keep it simple. One sentence.**
+
+### Question 2: What Do You Love to Do?
+
+What's the ONE thing you feel supremely qualified to teach other people right now?
+
+Not "what should I be good at" or "what pays well."
+
+**What do you actually LOVE doing? What comes naturally?**
+
+Examples:
+- Making people laugh
+- Organizing chaos
+- Explaining complex ideas simply
+- Building things
+- Helping people feel heard
+
+**Again, one thing. Don't overthink it.**
+
+### Question 3: Who Do You Do It For?
+
+Who benefits from your gift? Who's your audience?
+
+Examples:
+- Young entrepreneurs who feel stuck
+- Parents struggling with technology
+- Students who think they're not smart enough
+- Communities lacking resources
+- People recovering from addiction
+
+**Get specific. "Everyone" is not an answer.**
+
+### Question 4: What Do They Want or Need?
+
+Step into their shoes. What's their pain? What's their desire?
+
+Examples:
+- They need clarity and direction
+- They want to feel less alone
+- They need practical tools, not theory
+- They want hope that change is possible
+- They need someone who understands their struggle
+
+**This is where empathy lives.**
+
+### Question 5: How Do They Change as a Result?
+
+What transformation happens because of what you do?
+
+Examples:
+- They go from confused to confident
+- They move from isolated to connected
+- They shift from hopeless to empowered
+- They transform from stuck to progressing
+- They evolve from scattered to focused
+
+**This is your impact. Your legacy. Your purpose.**
+
+## Put It Together: Your Purpose Sentence
+
+Now combine your answers into one sentence:
+
+**"I [WHO YOU ARE] help [WHO YOU SERVE] to [TRANSFORMATION] by [WHAT YOU DO]."**
+
+### Real Examples:
+
+**Leipzig's answer:**  
+"I'm a storyteller who helps audiences understand complex human experiences through film and writing, so they feel less alone and more connected to their humanity."
+
+**A teacher might say:**  
+"I'm an encourager who helps struggling students believe in their potential through patient teaching, so they go from 'I can't' to 'I did it.'"
+
+**An entrepreneur:**  
+"I'm a problem-solver who helps small business owners simplify their operations through smart systems, so they stop drowning in admin and start growing their business."
+
+**A social worker:**  
+"I'm a bridge-builder who helps marginalized communities access resources they need through advocacy and connection, so they move from invisible to empowered."
+
+## Your Turn
+
+Stop reading. Answer the 5 questions. Right now.
+
+1. Who am I?
+2. What do I love to do?
+3. Who do I do it for?
+4. What do they want/need?
+5. How are they changed?
+
+**Seriously. Don't skip this. 5 minutes.**
+
+## The Critical Insight: It's About THEM, Not You
+
+Here's what Adam Leipzig discovered about that happy 20%:
+
+**"The most successful people in any field always focus most on the people that they serve, rather than on how they are served themselves."**
+
+Read that again.
+
+### The Unhappy 80%:
+- What will I get?
+- What's in it for me?
+- How do I succeed?
+- What will people think of me?
+
+### The Happy 20%:
+- Who can I help?
+- What do they need?
+- How can I serve?
+- What transformation can I create?
+
+**Purpose isn't found by looking inward. It's found by looking outward.**
+
+## Why This Works (The Science)
+
+Multiple studies confirm:
+- **Helping others** activates the brain's reward centers
+- **Contributing to something bigger** than yourself reduces anxiety and depression
+- **Having a sense of purpose** correlates with:
+  - Longer life expectancy
+  - Better physical health
+  - Greater resilience
+  - Higher life satisfaction
+  - Lower stress levels
+
+**Translation: Your brain is literally wired for purpose. And purpose is wired for service.**
+
+## The Kenyan Context: Purpose in Community
+
+This framework is ESPECIALLY powerful in African cultures, where community has always been central.
+
+**Ubuntu philosophy**: "I am because we are."
+
+We've never needed a TEDx talk to tell us:
+- Identity is communal
+- Purpose is relational
+- Success is collective
+
+**But we're losing this in the digital age.**
+
+Social media trains us to ask:
+- How many likes did I get?
+- How do I look to others?
+- Am I impressive enough?
+
+**Leipzig's framework calls us BACK to what we've always known:**
+- Who am I serving?
+- How am I helping?
+- What am I contributing?
+
+## Common Objections (And Why They're Wrong)
+
+### "But I need to make money!"
+
+**Purpose and profit aren't opposites.**
+
+In fact, the most successful businesses solve real problems for real people. That's literally the 5-question framework applied to entrepreneurship.
+
+### "I don't have a special gift."
+
+**Stop waiting to feel "ready."**
+
+You already have something others need. The question isn't "Am I special enough?" It's "Who needs what I already have?"
+
+### "I'm too young/old/inexperienced."
+
+**Purpose evolves with seasons of life.**
+
+Your purpose at 20 looks different than at 40 or 60. That's normal. Answer the questions for THIS season.
+
+### "What if my answers change?"
+
+**They will. That's growth.**
+
+Leipzig isn't asking you to carve your purpose in stone. He's giving you a compass for RIGHT NOW.
+
+## From Screen Time to Purpose Time
+
+Here's the brutal connection to digital wellness:
+
+**Every hour you spend scrolling is an hour NOT living your purpose.**
+
+- You're consuming other people's lives instead of building your own
+- You're watching transformations instead of creating them
+- You're numbing your purpose with distraction
+
+**The 5 questions work, but only if you DO something with the answers.**
+
+## Action Steps (Do These Today)
+
+### 1. **Answer the 5 Questions**
+Write them down. Physically. Pen and paper.
+
+### 2. **Create Your Purpose Sentence**
+One sentence. Clear. Specific. Focused on others.
+
+### 3. **Identify One Action**
+What's ONE thing you can do THIS WEEK that aligns with your purpose?
+
+### 4. **Schedule Purpose Time**
+Block 30 minutes daily to work ON your purpose, not just THINK about it.
+
+### 5. **Reduce Purpose Killers**
+What drains your time/energy without serving your purpose?  
+(Hint: Probably scrolling.)
+
+## The Quote That Changes Everything
+
+**"The unexamined life is not worth living. But if all you're doing is examining, then you're not living!"** — Adam Leipzig
+
+Stop overthinking. Start serving.
+
+Your purpose isn't hiding in some distant future or buried in your past.
+
+**It's in the answers to 5 simple questions.**
+
+Who are you?  
+What do you do?  
+Who do you do it for?  
+What do they need?  
+How are they changed?
+
+## The Bottom Line
+
+At that Yale reunion, Leipzig saw a painful truth:
+
+**Most people spend more time planning a vacation than planning their life.**
+
+You have one life. One chance to make your unique contribution.
+
+**5 minutes. 5 questions. Infinite clarity.**
+
+What are you waiting for?
+
+---
+
+*Calculate how much time you're wasting on distraction instead of living your purpose. Get your personalized action plan.*
+`
+  },
+  {
     id: "stoic-philosophy-cure-smartphone-addiction",
     title: "How Ancient Stoic Philosophy Can Cure Your Smartphone Addiction (Marcus Aurelius Knew)",
     excerpt: "A Roman Emperor from 180 AD has the exact solution to your TikTok problem. Here's how Stoicism fixes digital distraction.",

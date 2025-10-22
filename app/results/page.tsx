@@ -8,6 +8,7 @@ import { DotMatrix } from "@/components/DotMatrix";
 import { calculateLifeStats, getActivitiesData, getScreenTimeComparison, formatTime, type LifeData } from "@/lib/calculations";
 
 type TimeDisplayMode = 'months' | 'years' | 'days';
+type ReductionPercentage = 50 | 60 | 70 | 80 | 90 | 100;
 
 export default function ResultsPage() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function ResultsPage() {
   const [lifeData, setLifeData] = useState<LifeData | null>(null);
   const [stats, setStats] = useState<ReturnType<typeof calculateLifeStats> | null>(null);
   const [timeMode, setTimeMode] = useState<TimeDisplayMode>('months');
+  const [reductionPercent, setReductionPercent] = useState<ReductionPercentage>(50);
 
   useEffect(() => {
     const data = sessionStorage.getItem("lifeData");
@@ -37,6 +39,16 @@ export default function ResultsPage() {
 
   const activities = getActivitiesData(stats);
   const comparison = getScreenTimeComparison(stats);
+  
+  // Calculate time saved based on reduction percentage
+  const calculateReduction = (percent: number) => {
+    const reducedMonths = Math.round(stats.screenTimeMonths * (1 - percent / 100));
+    const savedMonths = stats.screenTimeMonths - reducedMonths;
+    const newFreeTime = stats.freeTimeMonths - reducedMonths;
+    return { reducedMonths, savedMonths, newFreeTime };
+  };
+  
+  const currentReduction = calculateReduction(reductionPercent);
 
   // Helper function to format time based on selected mode
   const formatTimeDisplay = (months: number): string => {
@@ -265,13 +277,14 @@ export default function ResultsPage() {
     },
     {
       title: "But you can still win back that time",
-      subtitle: `Just watch what happens if you reduce screen time by 50%`,
+      subtitle: `Choose how much to reduce your screen time and watch the transformation`,
       dots: stats.freeTimeMonths,
-      colored: [{ count: comparison.reducedMonths, color: "bg-red-400" }],
+      colored: [{ count: currentReduction.reducedMonths, color: "bg-red-400" }],
       legend: [
-        { emoji: "📱", name: "Screen Time", months: comparison.reducedMonths, color: "bg-red-400" },
-        { emoji: "✨", name: "Free Time", months: stats.freeTimeMonths - comparison.reducedMonths, color: "bg-gray-300" },
+        { emoji: "📱", name: "Screen Time", months: currentReduction.reducedMonths, color: "bg-red-400" },
+        { emoji: "✨", name: "Free Time", months: currentReduction.newFreeTime, color: "bg-green-400" },
       ],
+      interactive: true,
       buttons: true,
     },
   ];
@@ -351,6 +364,47 @@ export default function ResultsPage() {
           coloredDots={currentStep.colored}
           animate={true}
         />
+
+        {/* Interactive Reduction Dropdown */}
+        {currentStep.interactive && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-8 max-w-md mx-auto"
+          >
+            <label className="block text-center mb-4">
+              <span className="text-lg font-medium text-cyan-400">Reduce screen time by:</span>
+            </label>
+            <select
+              value={reductionPercent}
+              onChange={(e) => setReductionPercent(Number(e.target.value) as ReductionPercentage)}
+              className="w-full px-6 py-4 bg-gray-900 border-2 border-cyan-500 rounded-lg text-white text-center text-xl font-bold cursor-pointer hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            >
+              <option value="50">50% - Cut in Half</option>
+              <option value="60">60% - Major Reduction</option>
+              <option value="70">70% - Serious Change</option>
+              <option value="80">80% - Minimal Use</option>
+              <option value="90">90% - Nearly Free</option>
+              <option value="100">100% - Complete Freedom</option>
+            </select>
+            
+            {/* Time Saved Display */}
+            <motion.div
+              key={reductionPercent}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="mt-6 p-6 bg-gradient-to-br from-green-900/30 to-blue-900/30 border border-green-500/30 rounded-xl"
+            >
+              <div className="text-center">
+                <p className="text-sm text-gray-400 mb-2">You'll save:</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-400 text-transparent bg-clip-text">
+                  {formatTimeDisplay(currentReduction.savedMonths)}
+                </p>
+                <p className="text-sm text-gray-400 mt-2">of your life back</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
 
         {/* Legend */}
         {currentStep.legend && currentStep.legend.length > 0 && (
