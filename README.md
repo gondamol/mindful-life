@@ -165,7 +165,7 @@ MIT License - Feel free to use for good
 
 ## 📧 Contact
 
-For questions or collaboration: [Your contact info]
+For questions or collaboration: +254 725 737 867
 
 ---
 

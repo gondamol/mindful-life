@@ -1,15 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { blogPosts } from "@/lib/blogPosts";
-import { ArrowRight, Calendar, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Calendar, Clock, BookOpen, Search, X } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 export default function BlogPage() {
   const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const categories = Array.from(new Set(blogPosts.map(post => post.category)));
+  
+  // Filter posts based on category and search
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = !selectedCategory || post.category === selectedCategory;
+    const matchesSearch = !searchQuery || 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -60,30 +73,122 @@ export default function BlogPage() {
             </p>
           </motion.div>
 
-          {/* Categories */}
+          {/* Search Bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="max-w-2xl mx-auto mb-8"
           >
-            {categories.map((category) => (
-              <button
-                key={category}
-                className="px-4 py-2 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-700 rounded-lg text-sm text-gray-300 transition-all"
-              >
-                {category}
-              </button>
-            ))}
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search articles by title, topic, or category..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-12 py-4 bg-gray-900 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
           </motion.div>
+
+          {/* Categories */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-3 mb-8"
+          >
+            <button
+              onClick={() => setSelectedCategory(null)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                selectedCategory === null
+                  ? "bg-blue-600 text-white border-2 border-blue-500"
+                  : "bg-gray-900 text-gray-300 border border-gray-800 hover:bg-gray-800 hover:border-gray-700"
+              }`}
+            >
+              All Articles ({blogPosts.length})
+            </button>
+            {categories.map((category) => {
+              const count = blogPosts.filter(p => p.category === category).length;
+              return (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    selectedCategory === category
+                      ? "bg-blue-600 text-white border-2 border-blue-500"
+                      : "bg-gray-900 text-gray-300 border border-gray-800 hover:bg-gray-800 hover:border-gray-700"
+                  }`}
+                >
+                  {category} ({count})
+                </button>
+              );
+            })}
+          </motion.div>
+
+          {/* Results Count */}
+          {(selectedCategory || searchQuery) && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center mb-8"
+            >
+              <p className="text-gray-400">
+                {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} found
+                {searchQuery && ` for "${searchQuery}"`}
+                {selectedCategory && ` in ${selectedCategory}`}
+              </p>
+              {(selectedCategory || searchQuery) && filteredPosts.length > 0 && (
+                <button
+                  onClick={() => {
+                    setSelectedCategory(null);
+                    setSearchQuery("");
+                  }}
+                  className="mt-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Clear filters
+                </button>
+              )}
+            </motion.div>
+          )}
         </div>
       </section>
 
       {/* Blog Posts Grid */}
       <section className="pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+          {filteredPosts.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-16"
+            >
+              <p className="text-2xl text-gray-400 mb-4">No articles found</p>
+              <p className="text-gray-500 mb-6">
+                Try adjusting your search or filters
+              </p>
+              <button
+                onClick={() => {
+                  setSelectedCategory(null);
+                  setSearchQuery("");
+                }}
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+              >
+                Clear all filters
+              </button>
+            </motion.div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -133,8 +238,9 @@ export default function BlogPage() {
                   </div>
                 </div>
               </motion.article>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
