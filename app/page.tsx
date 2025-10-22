@@ -281,13 +281,11 @@ export default function Home() {
       >
         <div className="flex flex-col gap-3">
           <a
-            href="https://buymeacoffee.com/nichodemus"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/support"
             className="flex items-center gap-2 px-4 py-3 bg-yellow-500 hover:bg-yellow-400 text-black rounded-full font-medium shadow-lg transition-all group"
           >
             <Coffee className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            <span className="hidden sm:inline">Buy me a coffee</span>
+            <span className="hidden sm:inline">Support Project</span>
           </a>
           
           <a
