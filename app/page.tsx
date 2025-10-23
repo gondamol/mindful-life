@@ -463,12 +463,12 @@ export default function Home() {
                   </motion.div>
                 ))}
               </motion.div>
-              {/* Enhanced CTA Buttons */}
+              {/* Enhanced CTA Buttons - Mobile First */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
               >
                 {/* Primary CTA with pulse effect */}
                 <motion.button
@@ -480,19 +480,33 @@ export default function Home() {
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl text-lg font-semibold transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-500/20"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-2xl text-xl sm:text-lg font-bold transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-500/30 touch-manipulation"
                 >
                   Calculate Your Time
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  <ArrowRight className="w-6 h-6 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
                 </motion.button>
 
                 {/* Secondary CTA */}
-                <button
+                <motion.button
                   onClick={() => router.push('/blog')}
-                  className="px-10 py-4 bg-transparent hover:bg-gray-900/50 border-2 border-gray-700 hover:border-gray-600 rounded-xl text-lg font-medium transition-all"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-4 bg-transparent hover:bg-gray-900/50 border-2 border-gray-700 hover:border-gray-600 rounded-2xl text-xl sm:text-lg font-semibold transition-all touch-manipulation"
                 >
                   Learn More
-                </button>
+                </motion.button>
+              </motion.div>
+              
+              {/* Mobile-specific quick stats */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4 }}
+                className="sm:hidden mt-6 text-center text-sm text-gray-500"
+              >
+                ⚡ Takes 2 minutes • 🎯 100% Free • 🔒 Private
               </motion.div>
             </motion.div>
           </div>
@@ -847,6 +861,73 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      {/* Floating Action Button - Mobile Only */}
+      <motion.button
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => router.push("/assess")}
+        className="md:hidden fixed bottom-20 right-4 z-40 w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-2xl flex items-center justify-center group"
+      >
+        <Zap className="w-7 h-7 text-white group-active:rotate-12 transition-transform" />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute inset-0 bg-blue-400 rounded-full -z-10"
+        />
+      </motion.button>
+
+      {/* Bottom Navigation - Mobile Only */}
+      <motion.nav
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="md:hidden fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-gray-800 z-50 safe-area-inset-bottom"
+      >
+        <div className="grid grid-cols-4 gap-1 p-2">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex flex-col items-center justify-center py-2 px-3 rounded-lg hover:bg-gray-800/50 transition-colors touch-manipulation"
+          >
+            <HomeIcon className="w-5 h-5 text-blue-400" />
+            <span className="text-xs mt-1 text-gray-400">Home</span>
+          </button>
+          <button
+            onClick={() => router.push('/assess')}
+            className="flex flex-col items-center justify-center py-2 px-3 rounded-lg hover:bg-gray-800/50 transition-colors touch-manipulation"
+          >
+            <TrendingUp className="w-5 h-5 text-green-400" />
+            <span className="text-xs mt-1 text-gray-400">Calculate</span>
+          </button>
+          <button
+            onClick={() => router.push('/academy')}
+            className="flex flex-col items-center justify-center py-2 px-3 rounded-lg hover:bg-gray-800/50 transition-colors touch-manipulation"
+          >
+            <Award className="w-5 h-5 text-purple-400" />
+            <span className="text-xs mt-1 text-gray-400">Academy</span>
+          </button>
+          <button
+            onClick={() => router.push('/blog')}
+            className="flex flex-col items-center justify-center py-2 px-3 rounded-lg hover:bg-gray-800/50 transition-colors touch-manipulation"
+          >
+            <BookOpen className="w-5 h-5 text-yellow-400" />
+            <span className="text-xs mt-1 text-gray-400">Blog</span>
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* PWA Install Prompt */}
+      <InstallPrompt />
     </div>
   );
 }
