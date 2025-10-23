@@ -1,15 +1,21 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target, Menu, X, Sparkles, GraduationCap, Coffee, Mail, Phone, CheckCircle } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { ArrowRight, Brain, Heart, Clock, Users, BookOpen, Target, Menu, X, Sparkles, GraduationCap, Coffee, Mail, Phone, CheckCircle, Zap, TrendingUp, Award, Home as HomeIcon, Search, User } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { InstallPrompt } from "@/components/InstallPrompt";
 
 export default function Home() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showPromo, setShowPromo] = useState(true);
+  const [activeTab, setActiveTab] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const stats = [
     { value: "4.5 hours", label: "Average daily social media use", icon: Clock },
