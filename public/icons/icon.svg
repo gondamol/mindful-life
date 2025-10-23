@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="512" height="512" rx="128" fill="url(#gradient)"/>
+  
+  <!-- Infinity symbol representing mindful life -->
+  <path d="M256 180C220 180 190 210 190 246C190 282 220 312 256 312C292 312 322 282 322 246C322 210 292 180 256 180Z" fill="white" opacity="0.2"/>
+  
+  <!-- Central infinity/meditation icon -->
+  <path d="M180 256C180 220 150 190 114 190C78 190 48 220 48 256C48 292 78 322 114 322C150 322 180 292 180 256Z" fill="white"/>
+  <path d="M332 256C332 220 362 190 398 190C434 190 464 220 464 256C464 292 434 322 398 322C362 322 332 292 332 256Z" fill="white"/>
+  
+  <!-- Connection line (infinity middle) -->
+  <path d="M114 256H398" stroke="white" stroke-width="40" stroke-linecap="round"/>
+  
+  <!-- Brain/mind symbol -->
+  <circle cx="256" cy="256" r="40" fill="url(#gradient2)"/>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+</svg>
