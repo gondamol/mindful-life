@@ -26,7 +26,6 @@ Looking for feedback on:
 - Course content
 - Overall impact
 
-Built with Next.js, Supabase, Tailwind CSS, and Resend 💻
 
 #DigitalWellness #Stoicism #ScreenTime #BuildInPublic #OpenSource #TechForGood
 
